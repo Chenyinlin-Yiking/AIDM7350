@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>YTpeter 知识空间</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <!-- 导航栏开始 -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="logo">YTpeter</a>
+            <ul class="nav-links">
+                <li><a href="#home"><i class="fas fa-brain"></i> 知识库</a></li>
+                <li><a href="Picture-StableDiffusion/index.html"><i class="fas fa-palette"></i> SD作品</a></li>
+                <li><a href="Video/index.html"><i class="fas fa-video"></i> 视频作品</a></li>
+                <li><a href="#donate"><i class="fas fa-coffee"></i> 打赏</a></li>
+            </ul>
+        </div>
+    </nav>
+    <!-- 导航栏结束 -->
+
+    <!-- 主页横幅开始 -->
+    <header class="hero" id="home">
+        <div class="hero-content">
+            <div class="title-card">
+                <h1>YTpeter 的个人知识创作空间</h1>
+                <p class="subtitle">这个人很菜，但分享的东西一定是原创，非原创定会注明出处</p>
+            </div>
+        </div>
+    </header>
+    <!-- 主页横幅结束 -->
+
+    <!-- 主内容区开始 -->
+    <main class="container">
+        <!-- 作品集模块开始 -->
+        <section class="section gallery-section" id="gallery">
+            <div class="gallery-window">
+	        <!-- 修改SD作品集卡片部分 -->
+                <div class="folder-card" onclick="handleNavigation('Picture-StableDiffusion/index.html')">
+                    <div class="folder-cover sd-cover">
+                        <img src="images/xili1.png" alt="SD作品封面">
+                    </div>
+                    <div class="folder-label">
+                        <i class="fas fa-palette"></i>
+                        Picture-StableDiffusion
+                    </div>
+                </div>
+                <!-- 视频作品集卡片 -->
+                <div class="folder-card" onclick="handleNavigation('Video/index.html')">
+                    <div class="folder-cover placeholder">
+                        <i class="fas fa-video"></i>
+                    </div>
+                    <div class="folder-label">
+                        <i class="fas fa-film"></i>
+                        Video Collection
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- 作品集模块结束 -->
+
+        <!-- 打赏模块开始 -->
+        <section class="section donate-section" id="donate">
+            <div class="donate-window">
+                <h2>知识燃料补给站</h2>
+                <p class="donate-subtitle">这个人这么菜，资助他多学学新知识吧</p>
+                <div class="qrcode-container">
+                    <!-- 替换为你的微信收款码 -->
+                    <img src="images/sponsor.jpg" alt="微信打赏" class="donate-qrcode">
+                    <p class="qrcode-tip">扫码支持原创知识分享</p>
+                </div>
+            </div>
+        </section>
+        <!-- 打赏模块结束 -->
+    </main>
+    <!-- 主内容区结束 -->
+
+    <!-- 页脚开始 -->
+    <footer class="footer">
+        <p>知识共享许可协议 © 2023 YTpeter</p>
+    </footer>
+    <!-- 页脚结束 -->
+
+    <!-- JavaScript 开始 -->
+    <script>
+        // 智能路径处理函数
+        function handleNavigation(path) {
+            const isLocal = window.location.protocol === 'file:';
+            const basePath = isLocal 
+                ? '/HKBU-AIDM/HKBU-AIDM7350-AIandDigitalMediaWorkshop/Website'
+                : '';
+            
+            window.location.href = `${basePath}/${path}`;
+        }
+
+        // 导航栏激活状态
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            if(link.href === window.location.href) {
+                link.classList.add('active');
+            }
+        });
+    </script>
+    <!-- JavaScript 结束 -->
+</body>
+</html>
